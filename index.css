@@ -10,6 +10,7 @@
 }
 .trending {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 20px;
@@ -20,8 +21,53 @@
     background-color: var(--color-divider);
     padding: 20px;
     border-radius: 8px;
+    width: 25%;
 }
 
+.andor, .sinners, .conclave {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    min-height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px black;
+}
+.andor>p, .sinners>p, .conclave>p{
+    margin: 0;
+    color: white;
+    font-size: 12px;
+}
+.andor>h4, .sinners>h4, .conclave>h4{
+    margin: 0;
+    color: var(--color-button-text);
+    font-size: 32px;
+}
+
+
+
 .andor{
-    background-image: url(bilder/andor.jpg);
+    background-image: 
+    linear-gradient(to top, rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.2)),
+    url(bilder/andor.jpg);
+}
+
+.conclave{
+    background-image: 
+    linear-gradient(to top, rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.2)),
+    url(bilder/conclave.jpg);
+}
+
+.sinners{
+    background-image: 
+    linear-gradient(to top, rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.2)),
+    url(bilder/sinners.jpg);
 }
