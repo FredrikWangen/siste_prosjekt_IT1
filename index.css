@@ -1,0 +1,27 @@
+:root {
+    --color-background: #ffffff;
+    --color-text-primary: #333333;
+    --color-text-secondary: #666666;
+    --color-primary: #007BFF;
+    --color-primary-hover: #0056b3;
+    --color-button-text: #ffffff;
+    --color-input-border: #cccccc;
+    --color-divider: #eeeeee;
+}
+.trending {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    color:var(--color-button-text) ;
+}
+
+.trending > div {
+    background-color: var(--color-divider);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.andor{
+    background-image: url(bilder/andor.jpg);
+}
