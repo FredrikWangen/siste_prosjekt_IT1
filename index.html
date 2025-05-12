@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Film Søk</title>
+  <link rel="stylesheet" href="søk.css">
+</head>
+<body>
+  <h1>Søk etter en film</h1>
+  <input type="text" id="movieTitle" placeholder="Skriv inn filmtittel">
+  <input type="number" id="movieYear" placeholder="Årstall (valgfritt)">
+  <button onclick="searchMovie()">Søk</button>
+  <div id="result"></div>
+
+  <script>
+    const apiKey = "e250dfcd"; // Din API-nøkkel
+
+    async function searchMovie() {
+      const title = document.getElementById("movieTitle").value.trim();
+      const year = document.getElementById("movieYear").value.trim();
+
+      if (!title) {
+        document.getElementById("result").innerHTML = "<p>Vennligst skriv inn en tittel.</p>";
+        return;
+      }
+
+      let url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}&plot=full`;
+      if (year) {
+        url += `&y=${encodeURIComponent(year)}`;
+      }
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.Response === "True") {
+        document.getElementById("result").innerHTML = `
+          <h2>${data.Title} (${data.Year})</h2>
+          <img src="${data.Poster}" alt="Poster" style="max-width:200px;">
+          <p><strong>Regissør:</strong> ${data.Director}</p>
+          <p><strong>Skuespillere:</strong> ${data.Actors}</p>
+          <p><strong>Plot:</strong> ${data.Plot}</p>
+        `;
+      } else {
+        document.getElementById("result").innerHTML = `<p>Film ikke funnet.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
