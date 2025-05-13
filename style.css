@@ -44,12 +44,12 @@ a{
     margin-right: 5px;
 }
 
-
-
-main {
-    display: flex;
-    justify-content: center;
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

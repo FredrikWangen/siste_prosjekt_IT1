@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wangen Score | Anmeldelse</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --color-background: #f4f4f4;
+      --color-text-primary: #333;
+      --color-text-secondary: #555;
+      --color-accent: #007BFF;
+      --color-border: #ddd;
+    }
+
+
+    header nav {
+      background-color: var(--color-accent);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    .movie-review {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .movie-review img {
+      max-width: 300px;
+      border-radius: 8px;
+    }
+
+    .movie-info {
+      flex: 1;
+    }
+
+    .movie-info h1 {
+      margin-top: 0;
+    }
+
+    .label {
+      font-weight: bold;
+      color: var(--color-text-secondary);
+    }
+
+    .rating {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #c29200;
+      }
+      blockquote {
+        font-style: italic;
+        color: #555;
+        margin: 20px 0;
+      }
+
+    @media (max-width: 768px) {
+      .movie-review {
+        flex-direction: column;
+        align-items: center;
+      }
+      .movie-info {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Wangen Score</a>
+      <div class="andre_siden">
+        <a href="index.html">Hjem</a>
+        <a href="search.html">Søk Opp</a>
+        <a href="anbefaling">Wangen's Anbefalinger</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container" id="movieContainer">
+    <p>Laster inn anmeldelse...</p>
+  </div>
+  <div class="container">
+    <h2>En mørkere og mer moden Star Wars-historie</h2>
+    <p><em>Andor</em> skiller seg tydelig ut fra tidligere Star Wars-serier ved å være mer politisk, mer karakterdrevet og overraskende jordnær – uten å miste det episke omfanget som kjennetegner universet. Serien følger Cassian Andor før hendelsene i filmen <em>Rogue One</em>, og gir oss et nyansert innblikk i opprørets tidlige dager.</p>
+  
+    <h2>Styrker</h2>
+    <ul>
+      <li><strong>Skuespill:</strong> Diego Luna gjør en sterk og troverdig innsats som Andor. Skuespillere som Stellan Skarsgård og Fiona Shaw leverer også på høyt nivå.</li>
+      <li><strong>Manus og dialog:</strong> Mer komplekst enn det vi vanligvis får i Star Wars. Serien tar seg tid til å bygge opp karakterer og konflikter.</li>
+      <li><strong>Visuelt:</strong> Praktiske effekter og autentiske omgivelser gir serien et mer "ekte" preg enn de mange greenscreen-tunge forgjengerne.</li>
+    </ul>
+  
+    <h2>Svakheter</h2>
+    <ul>
+      <li>Tempoet kan være tregt, spesielt i de tidlige episodene. Dette kan være utfordrende for seere som forventer action fra start til slutt.</li>
+      <li>Noen sideplott føles mindre relevante og kunne med fordel vært kortet ned.</li>
+    </ul>
+  
+    <blockquote>«Dette er den mest voksne og sofistikerte Star Wars-fortellingen vi har fått på skjerm – og det fungerer overraskende godt.»</blockquote>
+  
+    <h2>Konklusjon</h2>
+    <p><em>Andor</em> er et friskt pust i Star Wars-universet. Det er en serie for de som ønsker mer dybde, politikk og menneskelig drama enn det vi vanligvis forbinder med lyssabler og romskip. Den er ikke for alle, men for de rette seerne kan dette være den beste Star Wars-serien hittil.</p>
+  
+    <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Wangener)</p>
+
+
+  </div>
+
+  <script>
+    const apiKey = "e250dfcd";
+    const movieTitle = "andor"; 
+
+    async function loadReview() {
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const container = document.getElementById("movieContainer");
+
+      if (data.Response === "True") {
+        container.innerHTML = `
+          <div class="movie-review">
+            <img src="${data.Poster}" alt="${data.Title} poster">
+            <div class="movie-info">
+              <h1>${data.Title} (${data.Year})</h1>
+              <p><span class="label">Sjanger:</span> ${data.Genre}</p>
+              <p><span class="label">Regissør:</span> ${data.Director}</p>
+              <p><span class="label">Skuespillere:</span> ${data.Actors}</p>
+              <p><span class="label">IMDB Score:</span> ${data.imdbRating}</p>
+              <p><span class="label">Plot:</span> ${data.Plot}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `<p>Fant ikke filmen "${movieTitle}".</p>`;
+      }
+    }
+
+    loadReview();
+  </script>
+</body>
+</html>

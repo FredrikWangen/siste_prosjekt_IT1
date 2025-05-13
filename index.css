@@ -17,12 +17,19 @@
     color:var(--color-button-text) ;
 }
 
-.trending > div {
+.trending > a {
     background-color: var(--color-divider);
     padding: 20px;
     border-radius: 8px;
     width: 25%;
+    transition: transform 0.3s ease; 
 }
+
+.trending > a:hover {
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
 
 .andor, .sinners, .conclave {
     background-size: cover;
