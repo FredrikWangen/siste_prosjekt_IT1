@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wangen Score | Anmeldelse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="trendig.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Wangen Score</a>
+            <div class="andre_siden">
+                <a href="index.html">Hjem</a>
+                <a href="search.html">Søk Opp</a>
+                <a href="anbefaling">Wangen's Anbefalinger</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container1" id="movieContainer">
+        <p>Laster inn anmeldelse...</p>
+    </div>
+    <section class="container">
+        <article>
+            <h2>En spennende thriller i Vatikanets korridorer</h2>
+            <p><em>Conclave</em> er en intens politisk thriller som finner sted i Vatikanet under den katolske kirkens valg av ny pave. Filmen tar oss bak de murer og skjulte korridorene hvor maktkamper, intriger og religiøse dilemmaer utspiller seg blant kardinalene, som alle har sine egne ambisjoner og hemmeligheter.</p>
+          
+            <h2>Styrker</h2>
+            <ul>
+              <li><strong>Skuespill:</strong> John Malkovich og Christopher Walken er imponerende i sine roller som kardinaler med sterke personlige interesser. Deres tilstedeværelse bærer filmen gjennom de mer stillestående øyeblikkene.</li>
+              <li><strong>Atmosfære:</strong> Filmens setting i Vatikanet, med mørke korridorer og symbolikk, bidrar sterkt til den spenningsfylte og dramatiske tonen.</li>
+              <li><strong>Intriger:</strong> Historien om maktkamp og manipulasjon, kombinert med de religiøse spørsmålene som blir stilt, skaper en kompleks og engasjerende fortelling.</li>
+            </ul>
+          
+            <h2>Svakheter</h2>
+            <ul>
+              <li>Filmens tempo kan være ujevn, og noen seere kan finne enkelte partier litt for langsomme.</li>
+              <li>Det mangler noe dybde i karakterene til tross for sterke skuespillerprestasjoner, spesielt i birollene.</li>
+            </ul>
+          
+            <h2>Konklusjon</h2>
+            <p><em>Conclave</em> er en film som vil fenge de som er interessert i religiøse intriger og politiske spill. Selv om den har noen svakheter i tempo og karakterutvikling, kompenserer den med sterke prestasjoner og en urovekkende skildring av maktkampene som foregår bak lukket dør. En film som gir et interessant, men også mørkt, innblikk i Vatikanets verden.</p>
+        
+            <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Wangener)</p>
+        </article>
+        <img src="bilder/conclave2.png" alt="">
+    </section>
+
+    <script>
+        const apiKey = "e250dfcd";
+        const movieTitle = "conclave";
+
+        async function loadReview() {
+            const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const container = document.getElementById("movieContainer");
+
+            if (data.Response === "True") {
+                container.innerHTML = `
+          <div class="movie-review">
+            <img src="${data.Poster}" alt="${data.Title} poster">
+            <div class="movie-info">
+              <h1>${data.Title} (${data.Year})</h1>
+              <p><span class="label">Sjanger:</span> ${data.Genre}</p>
+              <p><span class="label">Regissør:</span> ${data.Director}</p>
+              <p><span class="label">Skuespillere:</span> ${data.Actors}</p>
+              <p><span class="label">IMDB Score:</span> ${data.imdbRating}</p>
+              <p><span class="label">Plot:</span> ${data.Plot}</p>
+            </div>
+          </div>
+        `;
+            } else {
+                container.innerHTML = `<p>Fant ikke filmen "${movieTitle}".</p>`;
+            }
+        }
+
+        loadReview();
+    </script>
+</body>
+
+</html>
