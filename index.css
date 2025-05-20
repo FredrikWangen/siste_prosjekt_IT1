@@ -26,7 +26,7 @@
 }
 
 .trending > a:hover {
-    transform: scale(1.1); 
+    transform: scale(1.05); 
     cursor: pointer;
 }
 
@@ -76,5 +76,29 @@
 .sinners{
     background-image: 
     linear-gradient(to top, rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.2)),
-    url(bilder/sinners.jpg);
+    url(bilder/final.jpg);
 }
+
+.navn_rating{
+    display: flex;
+    flex-direction: row;
+}
+.colum{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.stjerne{
+    display: flex;
+    justify-content: space-between;
+}
+.tittel{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.rating {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #c29200;
+}
+

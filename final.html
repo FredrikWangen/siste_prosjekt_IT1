@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Wangen Score | Anmeldelse</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="trendig.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Wangen Score</a>
+      <div class="andre_siden">
+        <a href="index.html">Hjem</a>
+        <a href="search.html">Søk Opp</a>
+        <a href="anbefaling">Wangen's Anbefalinger</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container1" id="movieContainer">
+    <p>Laster inn anmeldelse...</p>
+  </div>
+  <section class="container">
+    <article>
+      <h2>Døden vender tilbake – med nytt blod</h2>
+      <p>Et nytt kapittel i <em>Final Destination</em>-serien er her, og <em>Bloodlines</em> forsøker å blåse nytt liv i
+        konseptet med en blanding av nostalgi og moderne skrekk. Som alltid står den brutale og uunngåelige Døden i
+        sentrum, men denne gangen får vi også et glimt inn i den mytologiske bakgrunnen bak den onde kraften som trekker
+        i trådene.</p>
+
+      <h2>Styrker</h2>
+      <ul>
+        <li><strong>Kreative dødssekvenser:</strong> Serien lever og dør på sine spektakulære ulykker, og her leverer
+          filmen med en rekke overraskende, groteske og sjokkerende øyeblikk.</li>
+        <li><strong>Visuelle effekter:</strong> Moderne effekter og praktisk arbeid blandes godt og gir intensitet og
+          realisme til scenene.</li>
+        <li><strong>Nostalgifaktor:</strong> Små referanser til tidligere filmer og strukturen gjør at fans av serien
+          vil føle seg hjemme.</li>
+      </ul>
+
+      <h2>Svakheter</h2>
+      <ul>
+        <li><strong>Manus:</strong> Til tross for noen nye idéer føles det meste som en repetisjon av tidligere filmer
+          med lite karakterutvikling.</li>
+        <li><strong>Karakterer:</strong> De fleste figurene er stereotypiske og fungerer mest som «ofre» for døden mer
+          enn faktiske personer vi bryr oss om.</li>
+        <li><strong>Uforløst dypere tematikk:</strong> Filmen flørter med å gi serien et dypere bakteppe, men kommer
+          aldri helt i mål med det.</li>
+      </ul>
+
+      <h2>Konklusjon</h2>
+      <p><em>Bloodlines</em> er blodig popcorn-underholdning, akkurat slik fansen forventer. Den tilfører ikke mye nytt
+        til serien, men gir en grei dose skrekk og kreativt kaos. For de som liker serien fra før, er dette et verdig
+        nok comeback – men det er ikke en film som vil overbevise skeptikere.</p>
+
+      <p class="rating">★ ★ ★ ☆ ☆ (3 av 5 stjerner)</p>
+    </article>
+    <img src="bilder/hode.jpg" alt="">
+  </section>
+
+  <script>
+    const apiKey = "e250dfcd";
+    const movieTitle = "Final Destination: Bloodlines";
+
+    async function loadReview() {
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const container = document.getElementById("movieContainer");
+
+      if (data.Response === "True") {
+        container.innerHTML = `
+          <div class="movie-review">
+            <img src="${data.Poster}" alt="${data.Title} poster">
+            <div class="movie-info">
+              <h1>${data.Title} (${data.Year})</h1>
+              <p><span class="label">Sjanger:</span> ${data.Genre}</p>
+              <p><span class="label">Regissør:</span> ${data.Director}</p>
+              <p><span class="label">Skuespillere:</span> ${data.Actors}</p>
+              <p><span class="label">IMDB Score:</span> ${data.imdbRating}</p>
+              <p><span class="label">Plot:</span> ${data.Plot}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `<p>Fant ikke filmen "${movieTitle}".</p>`;
+      }
+    }
+
+    loadReview();
+  </script>
+</body>
+
+</html>
