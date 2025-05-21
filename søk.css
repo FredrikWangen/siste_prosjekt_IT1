@@ -36,3 +36,19 @@ button {
 button:hover {
     background-color: var(--color-primary-hover);
 }
+
+.master {
+    border: 2px solid black;
+        
+
+}
+
+.flex-row {
+    display: flex;
+    margin-bottom: 5px;
+  }
+.flex-row>p{
+    width: 45%;
+}
+  
+  

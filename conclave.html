@@ -45,10 +45,16 @@
             <h2>Konklusjon</h2>
             <p><em>Conclave</em> er en film som vil fenge de som er interessert i religiøse intriger og politiske spill. Selv om den har noen svakheter i tempo og karakterutvikling, kompenserer den med sterke prestasjoner og en urovekkende skildring av maktkampene som foregår bak lukket dør. En film som gir et interessant, men også mørkt, innblikk i Vatikanets verden.</p>
         
-            <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Wangener)</p>
+            <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Stjerner)</p>
         </article>
         <img src="bilder/conclave2.png" alt="">
     </section>
+
+    <section class="container anbefalinger" id="recommendations">
+        <h2>Hva du kan se etterpå</h2>
+        <div class="anbefalt-filmer"></div>
+    </section>
+    
 
     <script>
         const apiKey = "e250dfcd";
@@ -81,6 +87,32 @@
         }
 
         loadReview();
+
+        async function loadRecommendations() {
+            const titles = ["The Two Popes" , "12 Angry Men", "Angels & Demons", "The Ides of March" ,"Spotlight"]; 
+          
+            const anbefaltContainer = document.querySelector(".anbefalt-filmer");
+          
+            for (let title of titles) {
+              const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
+              const response = await fetch(url);
+              const data = await response.json();
+          
+              if (data.Response === "True") {
+                const card = document.createElement("div");
+                card.classList.add("anbefalt-kort");
+                card.innerHTML = `
+                  <img src="${data.Poster}" alt="${data.Title}">
+                  <h4>${data.Title}</h4>
+                  <p>${data.Year} – ${data.Genre}</p>
+                `;
+                anbefaltContainer.appendChild(card);
+              }
+            }
+          }
+          
+          loadReview().then(loadRecommendations);
+          
     </script>
 </body>
 

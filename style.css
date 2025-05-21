@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
 :root {
     --color-background: #ffffff;
     --color-text-primary: #333333;
@@ -9,54 +11,76 @@
     --color-divider: #eeeeee;
 }
 
-body {
+*{
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+}
+
+body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    
 }
 
-
+nav > li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-button-text);
+    text-decoration: none;
+}
 
 nav{
-    padding: 20px;
-    background-color: var(--color-primary);
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: var(--color-primary);
 }
-a{
-    text-decoration: none;
-    color: var(--color-button-text);    
+.logo{
+    cursor: pointer;
 }
-.andre_siden>a:hover ,nav>a:hover{
-    text-decoration: underline;
-}
+
+
 .andre_siden{
-    display: flex;
-    justify-content: space-evenly;
-}
-.andre_siden > a{
-    margin-left: 5px;
-    margin-right: 5px;
+    list-style: none;
 }
 
-main{
+.andre_siden li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.andre_siden li a{
+    transition: all 0.3s ease 0s;
+}
+
+.andre_siden li a:hover{
+    color: wheat;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    
+}
+
+.knapp:hover{
+    background-color: var(--color-primary-hover);
+}
+
+
+main {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
-}
-
-
-
-

@@ -43,10 +43,18 @@
     <h2>Konklusjon</h2>
     <p><em>Andor</em> er et friskt pust i Star Wars-universet. Det er en serie for de som ønsker mer dybde, politikk og menneskelig drama enn det vi vanligvis forbinder med lyssabler og romskip. Den er ikke for alle, men for de rette seerne kan dette være den beste Star Wars-serien hittil.</p>
   
-    <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Wangener)</p>
+    <p class="rating">★ ★ ★ ★ ★ (5 av 5 Stjerner)</p>
     </article>
     <img src="bilder/cassian.png" alt="">
   </section>
+
+  <section class="container anbefalinger" id="recommendations">
+    <h2>Hva du kan se etterpå</h2>
+    <div class="anbefalt-filmer">
+     
+    </div>
+  </section>
+  
 
   <script>
     const apiKey = "e250dfcd";
@@ -79,6 +87,32 @@
     }
 
     loadReview();
+
+    async function loadRecommendations() {
+      const titles = ["The Mandalorian", "Rogue One", "Star Wars", "Obi-Wan Kenobi", "The clone wars" ]; 
+    
+      const anbefaltContainer = document.querySelector(".anbefalt-filmer");
+    
+      for (let title of titles) {
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+    
+        if (data.Response === "True") {
+          const card = document.createElement("div");
+          card.classList.add("anbefalt-kort");
+          card.innerHTML = `
+            <img src="${data.Poster}" alt="${data.Title}">
+            <h4>${data.Title}</h4>
+            <p>${data.Year} - ${data.Genre}</p>
+          `;
+          anbefaltContainer.appendChild(card);
+        }
+      }
+    }
+    
+    loadReview().then(loadRecommendations);
+    
   </script>
 </body>
 </html>

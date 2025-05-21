@@ -57,9 +57,14 @@
         til serien, men gir en grei dose skrekk og kreativt kaos. For de som liker serien fra før, er dette et verdig
         nok comeback – men det er ikke en film som vil overbevise skeptikere.</p>
 
-      <p class="rating">★ ★ ★ ☆ ☆ (3 av 5 stjerner)</p>
+      <p class="rating">★ ★ ★ ☆ ☆ (3 av 5 Stjerner)</p>
     </article>
     <img src="bilder/hode.jpg" alt="">
+  </section>
+
+  <section class="container anbefalinger" id="recommendations">
+    <h2>Hva du kan se etterpå</h2>
+    <div class="anbefalt-filmer"></div>
   </section>
 
   <script>
@@ -93,6 +98,31 @@
     }
 
     loadReview();
+
+    async function loadRecommendations() {
+      const titles = ["A Quiet Place","Get Out", "It Follows", "Hereditary", "The Invisible Man"]; 
+    
+      const anbefaltContainer = document.querySelector(".anbefalt-filmer");
+    
+      for (let title of titles) {
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+    
+        if (data.Response === "True") {
+          const card = document.createElement("div");
+          card.classList.add("anbefalt-kort");
+          card.innerHTML = `
+            <img src="${data.Poster}" alt="${data.Title}">
+            <h4>${data.Title}</h4>
+            <p>${data.Year} – ${data.Genre}</p>
+          `;
+          anbefaltContainer.appendChild(card);
+        }
+      }
+    }
+    
+    loadReview().then(loadRecommendations);
   </script>
 </body>
 
