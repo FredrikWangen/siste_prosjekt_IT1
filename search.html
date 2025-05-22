@@ -54,28 +54,40 @@
       const data = await response.json();
 
       if (data.Response === "True") {
+
+        const score = parseFloat(data.imdbRating);
+        let anbefaling;
+        if (score >= 6.5) {
+          anbefaling = "<p style='color:green'><strong>Anbefalt:</strong> Ja, denne har fått god score!</p>";
+        } else {
+          anbefaling = "<p style='color:red'><strong>Anbefalt:</strong> Nei, denne har lav score.</p>";
+        }
+
+
         document.getElementById("result").innerHTML = `
-          <div class="master">
-            <h2>${data.Title} (${data.Year})</h2>
-          <img src="${data.Poster}" alt="Poster" style="max-width:200px;">
-          <p><strong>IMDb Score:</strong> ${data.imdbRating} / 10</p>
-      
-          <div class="flex-row">
-            <p><strong>Genre:</strong> ${data.Genre}</p>
-            <p><strong>Runtime:</strong> ${data.Runtime}</p>
-          </div>
-      
-          <div class="flex-row">
-            <p><strong>Regissør:</strong> ${data.Director}</p>
-            <p><strong>Skuespillere:</strong> ${data.Actors}</p>
-          </div>
-      
-          <p><strong>Plot:</strong> ${data.Plot}</p>
-          </div>
-        `;
+    <div class="master">
+    <h2>${data.Title} (${data.Year})</h2>
+    <img src="${data.Poster}" alt="Poster" style="max-width:200px;">
+    <p><strong>IMDb Score:</strong> ${data.imdbRating} / 10</p>
+    ${anbefaling}
+
+    <div class="flex-row">
+      <p><strong>Genre:</strong> ${data.Genre}</p>
+      <p><strong>Runtime:</strong> ${data.Runtime}</p>
+    </div>
+
+    <div class="flex-row">
+      <p><strong>Regissør:</strong> ${data.Director}</p>
+      <p><strong>Skuespillere:</strong> ${data.Actors}</p>
+    </div>
+
+    <p><strong>Plot:</strong> ${data.Plot}</p>
+  </div>
+`;
+
       }
-      
-      
+
+
       else {
         document.getElementById("result").innerHTML = `<p>Film ikke funnet.</p>`;
       }
