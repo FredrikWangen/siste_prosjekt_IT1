@@ -21,67 +21,9 @@
             <a class="knapp" href=""><button>hei</button></a>
         </nav>
     </header>
-    <main>
-        <h1>Wangen's Anbefalinger</h1>
-        <div id="movies" class="movie-grid">
+   
 
-        </div>
-        <div id="movieModal" class="modal hidden">
-            <div class="modal-content">
-                <span id="closeModal" class="close-button">&times;</span>
-                <div id="movieDetails"></div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const apiKey = "e250dfcd";
-        const recommendedTitles = ["The Matrix", "Inception", "Breaking Bad", "Interstellar"];
-        const moviesDiv = document.getElementById("movies");
-        
-        recommendedTitles.forEach(title => {
-            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.Response === "True") {
-                        const card = document.createElement("div");
-                        card.className = "movie-card";
-        
-                        const img = document.createElement("img");
-                        img.src = data.Poster;
-                        img.alt = data.Title;
-                        img.style.cursor = "pointer";
-        
-                        const infoBox = document.createElement("div");
-                        infoBox.className = "movie-info";
-                        infoBox.id = `info-${data.imdbID}`;
-        
-                        img.addEventListener("click", () => {
-                            if (infoBox.innerHTML === "") {
-                                fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${data.imdbID}&plot=short`)
-                                    .then(response => response.json())
-                                    .then(details => {
-                                        infoBox.innerHTML = `
-                                            <strong>${details.Title} (${details.Year})</strong><br>
-                                            ${details.Plot}<br>
-                                            <em>${details.Genre} – ${details.Actors}</em>
-                                        `;
-                                        infoBox.classList.add("show");
-                                    });
-                            } else {
-                                infoBox.classList.toggle("show");
-                            }
-                        });
-        
-                        card.appendChild(img);
-                        card.appendChild(infoBox);
-                        moviesDiv.appendChild(card);
-                    }
-                });
-        });
-        </script>
-        
-        
+    
 </body>
 
 </html>
