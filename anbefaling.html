@@ -21,9 +21,124 @@
             <a class="knapp" href=""><button>hei</button></a>
         </nav>
     </header>
-   
+    <main>
+        <h1>Wangen's Anbefalinger</h1>
+        <p>Her får de beste filmene og TV-seriene du kan finne. Alt er sertifisert og kvalitet sjekket av Fredrik
+            Wangen.</p>
+        <p>Vi har sortert og rangsert din neste opplevse etter sjanger, så du alttid har noe å se på uanseet ditt humør.
+        </p>
+        <h3>Top 10 filmer</h3>
+        <div class="rad">
+            <div class="film" data-title="Interstellar" data-year="2014">
+                <img src="bilder/interstallar.jpg" alt="">
+                <p> <strong>1.</strong> Interstellar (2014)</p>
+            </div>
+            <div class="film" data-title="La La land" data-year="2016">
+                <img src="bilder/la.jpg" alt="">
+                <p><strong>2.</strong> La La Land (2016)</p>
+            </div>
+            <div class="film" data-title="Django Unchained" data-year="2012">
+                <img src="bilder/django.jpg" alt="">
+                <p> <strong>3.</strong> Django Unchained (2012)</p>
+            </div>
+            <div class="film" data-title="Forrest Gump" data-year="1994">
+                <img src="bilder/gump.jpg" alt="">
+                <p><strong>4.</strong> Forrest Gump (1994)</p>
+            </div>
+            <div class="film" data-title="The Batman" data-year="2022">
+                <img src="bilder/batman.jpg" alt="">
+                <p> <strong>5.</strong> The Batman (2022)</p>
+            </div>
+            <div class="film" data-title="Good Will Hunting" data-year="1997">
+                <img src="bilder/good.jpg" alt="">
+                <p><strong>6.</strong> Good Will Hunting (1997)</p>
+            </div>
+            <div class="film" data-title="Inception" data-year="2010">
+                <img src="bilder/inception.jpg" alt="">
+                <p><strong>7.</strong> Inception (2010)</p>
+            </div>
+            <div class="film" data-title="The Shawshank Redemption" data-year="1994">
+                <img src="bilder/the.jpg" alt="">
+                <p><strong>8.</strong> Frihetens regn (1994)</p>
+            </div>
+            <div class="film" data-title="The Matrix" data-year="1999">
+                <img src="bilder/matrix.jpg" alt="">
+                <p><strong>9.</strong> The Matrix (1999)</p>
+            </div>
+            
+            <div class="film" data-title="Rogue One: A Star Wars Story" data-year="2016">
+                <img src="bilder/rogue.jpg" alt="">
+                <p> <strong>10.</strong> Rogue One (2016)</p>
+            </div>
+        </div>
 
-    
+        <h3>Top 10 TV-Serier</h3>
+        <div class="rad">
+            <div class="film" data-title="Game of Thrones" data-year="2011">
+                <img src="bilder/got.jpg" alt="">
+                <p><strong>1.</strong> Game of Thrones (2011)</p>
+            </div>
+            <div class="film" data-title="Better Call Saul" data-year="2015">
+                <img src="bilder/bettercallsaul.jpg" alt="">
+                <p><strong>2.</strong> Better Call Saul (2015)</p>
+            </div>
+            <div class="film" data-title="True Detective" data-year="2014">
+                <img src="bilder/truedetective.jpg" alt="">
+                <p><strong>3.</strong> True Detective (2014)</p>
+            </div>
+            <div class="film" data-title="Breaking Bad" data-year="2008">
+                <img src="bilder/breakingbad.jpg" alt="">
+                <p><strong>4.</strong> Breaking Bad (2008)</p>
+            </div>
+            <div class="film" data-title="Daredevil" data-year="2015">
+                <img src="bilder/daredevil.jpg" alt="">
+                <p><strong>5.</strong> Daredevil (2015)</p>
+            </div>
+            <div class="film" data-title="Shogun" data-year="2024">
+                <img src="bilder/shogun.jpg" alt="">
+                <p><strong>6.</strong> Shogun (2024)</p>
+            </div>
+            <div class="film" data-title="Ted Lasso" data-year="2020">
+                <img src="bilder/tedlasso.jpg" alt="">
+                <p><strong>7.</strong> Ted Lasso (2020)</p>
+            </div>
+            <div class="film" data-title="The Office" data-year="2005">
+                <img src="bilder/office.jpg" alt="">
+                <p><strong>8.</strong> The Office (2005)</p>
+            </div>
+            <div class="film" data-title="Clarkson's Farm" data-year="2021">
+                <img src="bilder/clarksonfarm.jpg" alt="">
+                <p><strong>9.</strong> Clarkson's Farm (2021)</p>
+            </div>
+            <div class="film" data-title="Andor" data-year="2022">
+                <img src="bilder/andor.jpg" alt="">
+                <p><strong>10.</strong> Andor (2022)</p>
+            </div>
+            
+        </div>
+        <h3>Action</h3>
+        <div class="rad"></div>
+
+        <h3>Romanse</h3>
+        <div class="rad"></div>
+
+        <h3>Drama</h3>
+        <div class="rad"></div>
+
+        <h3>Horror</h3>
+        <div class="rad"></div>
+
+    </main>
+
+    <script>
+        document.querySelectorAll('.film').forEach(film => {
+            film.addEventListener('click', () => {
+                localStorage.setItem('searchTitle', film.dataset.title);
+                localStorage.setItem('searchYear', film.dataset.year);
+                window.location.href = 'search.html';
+            });
+        });
+    </script>
 </body>
 
 </html>

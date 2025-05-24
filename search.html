@@ -1,99 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Film Søk</title>
-  <link rel="stylesheet" href="søk.css">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Film Søk</title>
+    <link rel="stylesheet" href="søk.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body>
-  <header>
-    <nav>
-        <a class="logo" href="index.html">Wangen Score</a>
-        <ul class="andre_siden">
-            <li> <a href="index.html">Hjem</a></li>
-            <li><a href="search.html">Søk Opp</a></li>
-            <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
-        </ul>
-        <a class="knapp" href=""><button>hei</button></a>
-    </nav>
-</header>
-  <main>
-    <div class="container">
-      <section class="search">
-        <h1>Søk etter en film eller TV-serie</h1>
-        <div class="info">
-          <input type="text" id="movieTitle" placeholder="Skriv inn tittel">
-          <input type="number" id="movieYear" placeholder="Årstall (valgfritt)">
-          <button onclick="searchMovie()">Søk</button>
-        </div>
-        <div id="result"></div>
-      </section>
+  <body>
+    <header>
+      <nav>
+          <a class="logo" href="index.html">Wangen Score</a>
+          <ul class="andre_siden">
+              <li> <a href="index.html">Hjem</a></li>
+              <li><a href="search.html">Søk Opp</a></li>
+              <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
+          </ul>
+          <a class="knapp" href=""><button>hei</button></a>
+      </nav>
+  </header>
+    <main>
+      <div class="container">
+        <section class="search">
+          <h1>Søk etter en film eller TV-serie</h1>
+          <div class="info">
+            <input type="text" id="movieTitle" placeholder="Skriv inn tittel">
+            <input type="number" id="movieYear" placeholder="Årstall (valgfritt)">
+            <button onclick="searchMovie()">Søk</button>
+          </div>
+          <div id="result"></div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const apiKey = "e250dfcd";
+        const title = localStorage.getItem("searchTitle");
+        const year = localStorage.getItem("searchYear");
+      
+        if (title) {
+          document.getElementById("movieTitle").value = title;
+          if (year) {
+            document.getElementById("movieYear").value = year;
+          }
+          searchMovie();
+      
+          localStorage.removeItem("searchTitle");
+          localStorage.removeItem("searchYear");
+        }
+
+      async function searchMovie() {
+        const title = document.getElementById("movieTitle").value.trim();
+        const year = document.getElementById("movieYear").value.trim();
+
+        if (!title) {
+          document.getElementById("result").innerHTML = "<p>Vennligst skriv inn en tittel.</p>";
+          return;
+        }
+
+        let url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}&plot=full`;
+        if (year) {
+          url += `&y=${encodeURIComponent(year)}`;
+        }
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.Response === "True") {
+
+          const score = parseFloat(data.imdbRating);
+          let anbefaling;
+          if (score >= 6.5) {
+            anbefaling = "<p style='color:green'><strong>Anbefalt:</strong> Ja, denne har fått god score!</p>";
+          } else {
+            anbefaling = "<p style='color:red'><strong>Anbefalt:</strong> Nei, denne har lav score.</p>";
+          }
+
+
+          document.getElementById("result").innerHTML = `
+      <div class="master">
+      <h2>${data.Title} (${data.Year})</h2>
+      <img src="${data.Poster}" alt="Poster" style="max-width:200px;">
+      <p><strong>IMDb Score:</strong> ${data.imdbRating} / 10</p>
+      ${anbefaling}
+
+      <div class="flex-row">
+        <p><strong>Genre:</strong> ${data.Genre}</p>
+        <p><strong>Runtime:</strong> ${data.Runtime}</p>
+      </div>
+
+      <div class="flex-row">
+        <p><strong>Regissør:</strong> ${data.Director}</p>
+        <p><strong>Skuespillere:</strong> ${data.Actors}</p>
+      </div>
+
+      <p><strong>Plot:</strong> ${data.Plot}</p>
     </div>
-  </main>
+  `;
 
-  <script>
-    const apiKey = "e250dfcd";
-
-    async function searchMovie() {
-      const title = document.getElementById("movieTitle").value.trim();
-      const year = document.getElementById("movieYear").value.trim();
-
-      if (!title) {
-        document.getElementById("result").innerHTML = "<p>Vennligst skriv inn en tittel.</p>";
-        return;
-      }
-
-      let url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}&plot=full`;
-      if (year) {
-        url += `&y=${encodeURIComponent(year)}`;
-      }
-
-      const response = await fetch(url);
-      const data = await response.json();
-
-      if (data.Response === "True") {
-
-        const score = parseFloat(data.imdbRating);
-        let anbefaling;
-        if (score >= 6.5) {
-          anbefaling = "<p style='color:green'><strong>Anbefalt:</strong> Ja, denne har fått god score!</p>";
-        } else {
-          anbefaling = "<p style='color:red'><strong>Anbefalt:</strong> Nei, denne har lav score.</p>";
         }
 
 
-        document.getElementById("result").innerHTML = `
-    <div class="master">
-    <h2>${data.Title} (${data.Year})</h2>
-    <img src="${data.Poster}" alt="Poster" style="max-width:200px;">
-    <p><strong>IMDb Score:</strong> ${data.imdbRating} / 10</p>
-    ${anbefaling}
-
-    <div class="flex-row">
-      <p><strong>Genre:</strong> ${data.Genre}</p>
-      <p><strong>Runtime:</strong> ${data.Runtime}</p>
-    </div>
-
-    <div class="flex-row">
-      <p><strong>Regissør:</strong> ${data.Director}</p>
-      <p><strong>Skuespillere:</strong> ${data.Actors}</p>
-    </div>
-
-    <p><strong>Plot:</strong> ${data.Plot}</p>
-  </div>
-`;
-
+        else {
+          document.getElementById("result").innerHTML = `<p>Film ikke funnet.</p>`;
+        }
       }
+    </script>
+  </body>
 
-
-      else {
-        document.getElementById("result").innerHTML = `<p>Film ikke funnet.</p>`;
-      }
-    }
-  </script>
-</body>
-
-</html>
+  </html>
