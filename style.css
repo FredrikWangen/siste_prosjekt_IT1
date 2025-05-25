@@ -42,6 +42,7 @@ nav{
     align-items: center;
     padding: 15px 10%;
     background-color: var(--color-primary);
+    padding: 25px;
 }
 .logo{
     cursor: pointer;
@@ -62,11 +63,10 @@ nav{
 }
 
 .andre_siden li a:hover{
-    color: wheat;
+    color: gold;
 }
 
 button{
-    padding: 9px 25px;
     background-color: var(--color-primary);
     border: none;
     border-radius: 50px;
@@ -76,7 +76,7 @@ button{
 }
 
 .knapp:hover{
-    background-color: var(--color-primary-hover);
+    color: gold;
 }
 
 
@@ -84,4 +84,50 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+}
+
+@media screen and (max-width: 770px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .andre_siden li {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .knapp {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .navn_rating {
+        flex-direction: column;
+    }
+
+    .colum {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    section.trending a {
+        display: block;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav > li, a, button {
+        font-size: 14px;
+    }
 }

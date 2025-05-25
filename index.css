@@ -116,4 +116,58 @@ section {
 }
 
 
+@media screen and (max-width: 770px) {
+    .trending {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .trending > a {
+        width: 90%;
+    }
+
+    .navn_rating {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .colum {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .andor, .conclave, .sinners {
+        min-height: 200px;
+        background-position: top center;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    main h1 {
+        font-size: 1.5rem;
+    }
+
+    main h2 {
+        font-size: 1.2rem;
+    }
+
+    .trending > a {
+        padding: 15px;
+    }
+
+    .andor>h4, .sinners>h4, .conclave>h4 {
+        font-size: 24px;
+    }
+
+    .rating, .tittel {
+        font-size: 1em;
+    }
+
+    .stjerne {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 
