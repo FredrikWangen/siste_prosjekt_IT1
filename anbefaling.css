@@ -17,11 +17,20 @@
 }
 
 .film>img:hover {
-    transform: scale(1.05);
+    transform: scale(1.075);
 
 }
 .rad {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+h3{
+    font-size: 24px;
 }
