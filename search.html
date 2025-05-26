@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="søk.css">
     <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
     <header>
       <nav>
-          <a class="logo" href="index.html">Wangen Score</a>
+          <a class="logo" href="index.html">Wangen's Score</a>
           <ul class="andre_siden">
               <li> <a href="index.html">Hjem</a></li>
               <li><a href="search.html">Søk Opp</a></li>
               <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
           </ul>
-          <a class="knapp" href=""><button>hei</button></a>
+          <a href="oss.html"><button class="knapp">Om Oss</button></a>
       </nav>
   </header>
     <main>
@@ -27,7 +26,7 @@
           <div class="info">
             <input type="text" id="movieTitle" placeholder="Skriv inn tittel">
             <input type="number" id="movieYear" placeholder="Årstall (valgfritt)">
-            <button onclick="searchMovie()">Søk</button>
+            <button class="button" onclick="searchMovie()">Søk</button>
           </div>
           <div id="result"></div>
         </section>

@@ -115,6 +115,36 @@ section {
     padding-bottom: 10px;
 }
 
+.film{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.intervju {
+    padding: 40px 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    font-family: "Montserrat", sans-serif;
+}
+.intervju p {
+    width: 45%;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.intervju iframe {
+    width: 45%;
+    height: 315px;
+    border: none;
+}
+
 
 @media screen and (max-width: 770px) {
     .trending {
@@ -139,6 +169,20 @@ section {
     .andor, .conclave, .sinners {
         min-height: 200px;
         background-position: top center;
+    }
+    .intervju {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 15px;
+    }
+
+    .intervju p,
+    .intervju iframe {
+        width: 90%;
+    }
+
+    .intervju iframe {
+        height: 300px;
     }
 }
 
@@ -167,6 +211,13 @@ section {
     .stjerne {
         flex-direction: column;
         align-items: flex-start;
+    }
+    .intervju {
+        padding: 20px 10px;
+        gap: 15px;
+    }
+    .intervju iframe {
+        height: 250px;
     }
 }
 
