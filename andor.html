@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Wangen's Score | Anmeldelse</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="trendig.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
 
+<body>
   <header>
     <nav>
-        <a class="logo" href="index.html">Wangen's Score</a>
-        <ul class="andre_siden">
-            <li> <a href="index.html">Hjem</a></li>
-            <li><a href="search.html">Søk Opp</a></li>
-            <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
-        </ul>
-        <a href="oss.html"><button class="knapp">Om Oss</button></a>
+      <a class="logo" href="index.html">Wangen's Score</a>
+
+      <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
+      <ul class="andre_siden">
+        <li> <a href="index.html">Hjem</a></li>
+        <li><a href="search.html">Søk Opp</a></li>
+        <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
+      </ul>
+      <a href="oss.html"><button class="knapp">Om Oss</button></a>
     </nav>
-</header>
+  </header>
 
   <div class="container1" id="movieContainer">
     <p>Laster inn anmeldelse...</p>
@@ -26,25 +33,34 @@
   <section class="container">
     <article>
       <h2>En mørkere og mer moden Star Wars-historie</h2>
-    <p><em>Andor</em> skiller seg tydelig ut fra tidligere Star Wars-serier ved å være mer politisk, mer karakterdrevet og overraskende jordnær – uten å miste det episke omfanget som kjennetegner universet. Serien følger Cassian Andor før hendelsene i filmen <em>Rogue One</em>, og gir oss et nyansert innblikk i opprørets tidlige dager.</p>
-  
-    <h2>Styrker</h2>
-    <ul>
-      <li><strong>Skuespill:</strong> Diego Luna gjør en sterk og troverdig innsats som Andor. Skuespillere som Stellan Skarsgård og Fiona Shaw leverer også på høyt nivå.</li>
-      <li><strong>Manus og dialog:</strong> Mer komplekst enn det vi vanligvis får i Star Wars. Serien tar seg tid til å bygge opp karakterer og konflikter.</li>
-      <li><strong>Visuelt:</strong> Praktiske effekter og autentiske omgivelser gir serien et mer "ekte" preg enn de mange greenscreen-tunge forgjengerne.</li>
-    </ul>
-  
-    <h2>Svakheter</h2>
-    <ul>
-      <li>Tempoet kan være tregt, spesielt i de tidlige episodene. Dette kan være utfordrende for seere som forventer action fra start til slutt.</li>
-      <li>Noen sideplott føles mindre relevante og kunne med fordel vært kortet ned.</li>
-    </ul>
-  
-    <h2>Konklusjon</h2>
-    <p><em>Andor</em> er et friskt pust i Star Wars-universet. Det er en serie for de som ønsker mer dybde, politikk og menneskelig drama enn det vi vanligvis forbinder med lyssabler og romskip. Den er ikke for alle, men for de rette seerne kan dette være den beste Star Wars-serien hittil.</p>
-  
-    <p class="rating">★ ★ ★ ★ ★ (5 av 5 Stjerner)</p>
+      <p><em>Andor</em> skiller seg tydelig ut fra tidligere Star Wars-serier ved å være mer politisk, mer
+        karakterdrevet og overraskende jordnær – uten å miste det episke omfanget som kjennetegner universet. Serien
+        følger Cassian Andor før hendelsene i filmen <em>Rogue One</em>, og gir oss et nyansert innblikk i opprørets
+        tidlige dager.</p>
+
+      <h2>Styrker</h2>
+      <ul>
+        <li><strong>Skuespill:</strong> Diego Luna gjør en sterk og troverdig innsats som Andor. Skuespillere som
+          Stellan Skarsgård og Fiona Shaw leverer også på høyt nivå.</li>
+        <li><strong>Manus og dialog:</strong> Mer komplekst enn det vi vanligvis får i Star Wars. Serien tar seg tid til
+          å bygge opp karakterer og konflikter.</li>
+        <li><strong>Visuelt:</strong> Praktiske effekter og autentiske omgivelser gir serien et mer "ekte" preg enn de
+          mange greenscreen-tunge forgjengerne.</li>
+      </ul>
+
+      <h2>Svakheter</h2>
+      <ul>
+        <li>Tempoet kan være tregt, spesielt i de tidlige episodene. Dette kan være utfordrende for seere som forventer
+          action fra start til slutt.</li>
+        <li>Noen sideplott føles mindre relevante og kunne med fordel vært kortet ned.</li>
+      </ul>
+
+      <h2>Konklusjon</h2>
+      <p><em>Andor</em> er et friskt pust i Star Wars-universet. Det er en serie for de som ønsker mer dybde, politikk
+        og menneskelig drama enn det vi vanligvis forbinder med lyssabler og romskip. Den er ikke for alle, men for de
+        rette seerne kan dette være den beste Star Wars-serien hittil.</p>
+
+      <p class="rating">★ ★ ★ ★ ★ (5 av 5 Stjerner)</p>
     </article>
     <img src="bilder/cassian.png" alt="">
   </section>
@@ -52,14 +68,14 @@
   <section class="container anbefalinger" id="recommendations">
     <h2>Hva du kan se etterpå</h2>
     <div class="anbefalt-filmer">
-     
+
     </div>
   </section>
-  
+
 
   <script>
     const apiKey = "e250dfcd";
-    const movieTitle = "andor"; 
+    const movieTitle = "andor";
 
     async function loadReview() {
       const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
@@ -90,15 +106,15 @@
     loadReview();
 
     async function loadRecommendations() {
-      const titles = ["The Mandalorian", "Rogue One", "Star Wars", "Dune", "The clone wars" ]; 
-    
+      const titles = ["The Mandalorian", "Rogue One", "Star Wars", "Dune", "The clone wars"];
+
       const anbefaltContainer = document.querySelector(".anbefalt-filmer");
-    
+
       for (let title of titles) {
         const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
         const response = await fetch(url);
         const data = await response.json();
-    
+
         if (data.Response === "True") {
           const card = document.createElement("div");
           card.classList.add("anbefalt-kort");
@@ -111,9 +127,15 @@
         }
       }
     }
-    
+
     loadReview().then(loadRecommendations);
-    
+
+
+    function toggleMenu() {
+      const navLinks = document.querySelector(".andre_siden");
+      navLinks.classList.toggle("show");
+    }
   </script>
 </body>
+
 </html>

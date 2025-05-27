@@ -83,3 +83,9 @@ h1{
     color: var(--color-text-secondary);
     margin-bottom: 16px;
 }
+
+@media screen and (max-width: 800px){
+    .om{
+        flex-direction: column;
+    }
+}

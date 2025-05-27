@@ -7,12 +7,18 @@
     <title>Wangen's Anbefalinger</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="anbefaling.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <header>
         <nav>
             <a class="logo" href="index.html">Wangen's Score</a>
+
+            <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
             <ul class="andre_siden">
                 <li> <a href="index.html">Hjem</a></li>
                 <li><a href="search.html">Søk Opp</a></li>
@@ -24,7 +30,8 @@
     <main>
         <h1>Wangen's Anbefalinger</h1>
         <p>Her får de beste filmene og TV-seriene du kan finne. Alt er sertifisert og kvalitet sjekket av Fredrik
-            Wangen. Vi har sortert og rangsert din neste opplevse etter sjanger, så du alttid har noe å se på uanseet ditt humør.</p>
+            Wangen. Vi har sortert og rangsert din neste opplevse etter sjanger, så du alttid har noe å se på uanseet
+            ditt humør.</p>
         <h3>Topp 10 filmer</h3>
         <div class="rad">
             <div class="film" data-title="Interstellar" data-year="2014">
@@ -63,7 +70,7 @@
                 <img src="bilder/matrix.jpg" alt="">
                 <p><strong>9.</strong> The Matrix (1999)</p>
             </div>
-            
+
             <div class="film" data-title="Rogue One: A Star Wars Story" data-year="2016">
                 <img src="bilder/rogue.jpg" alt="">
                 <p> <strong>10.</strong> Rogue One (2016)</p>
@@ -112,7 +119,7 @@
                 <img src="bilder/andor.jpg" alt="">
                 <p><strong>10.</strong> Andor (2022)</p>
             </div>
-            
+
         </div>
         <h3>Action</h3>
         <div class="rad">
@@ -136,7 +143,7 @@
                 <img src="bilder/fastfive.jpg" alt="">
                 <p>Fast Five (2011)</p>
             </div>
-            
+
         </div>
 
         <h3>Romance</h3>
@@ -161,7 +168,7 @@
                 <img src="bilder/brokeback.jpg" alt="">
                 <p>Brokeback Mountain (2005)</p>
             </div>
-            
+
         </div>
 
         <h3>Drama</h3>
@@ -186,7 +193,7 @@
                 <img src="bilder/schindler.jpg" alt="">
                 <p>Schindler's List (1993)</p>
             </div>
-            
+
         </div>
 
         <h3>Horror</h3>
@@ -211,7 +218,7 @@
                 <img src="bilder/hereditary.jpg" alt="">
                 <p>Hereditary (2018)</p>
             </div>
-            
+
         </div>
 
     </main>
@@ -224,6 +231,11 @@
                 window.location.href = 'search.html';
             });
         });
+
+        function toggleMenu() {
+            const navLinks = document.querySelector(".andre_siden");
+            navLinks.classList.toggle("show");
+        }
     </script>
 </body>
 

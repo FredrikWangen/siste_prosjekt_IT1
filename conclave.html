@@ -2,74 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Wangen's Score | Anmeldelse</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="trendig.css">
+  <meta charset="UTF-8">
+  <title>Wangen's Score | Anmeldelse</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="trendig.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
   <header>
     <nav>
-        <a class="logo" href="index.html">Wangen's Score</a>
-        <ul class="andre_siden">
-            <li> <a href="index.html">Hjem</a></li>
-            <li><a href="search.html">Søk Opp</a></li>
-            <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
-        </ul>
-        <a href="oss.html"><button class="knapp">Om Oss</button></a>
+      <a class="logo" href="index.html">Wangen's Score</a>
+
+      <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
+      <ul class="andre_siden">
+        <li> <a href="index.html">Hjem</a></li>
+        <li><a href="search.html">Søk Opp</a></li>
+        <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
+      </ul>
+      <a href="oss.html"><button class="knapp">Om Oss</button></a>
     </nav>
-</header>
+  </header>
 
-    <div class="container1" id="movieContainer">
-        <p>Laster inn anmeldelse...</p>
-    </div>
-    <section class="container">
-        <article>
-            <h2>En spennende thriller i Vatikanets korridorer</h2>
-            <p><em>Conclave</em> er en intens politisk thriller som finner sted i Vatikanet under den katolske kirkens valg av ny pave. Filmen tar oss bak de murer og skjulte korridorene hvor maktkamper, intriger og religiøse dilemmaer utspiller seg blant kardinalene, som alle har sine egne ambisjoner og hemmeligheter.</p>
-          
-            <h2>Styrker</h2>
-            <ul>
-              <li><strong>Skuespill:</strong> John Malkovich og Christopher Walken er imponerende i sine roller som kardinaler med sterke personlige interesser. Deres tilstedeværelse bærer filmen gjennom de mer stillestående øyeblikkene.</li>
-              <li><strong>Atmosfære:</strong> Filmens setting i Vatikanet, med mørke korridorer og symbolikk, bidrar sterkt til den spenningsfylte og dramatiske tonen.</li>
-              <li><strong>Intriger:</strong> Historien om maktkamp og manipulasjon, kombinert med de religiøse spørsmålene som blir stilt, skaper en kompleks og engasjerende fortelling.</li>
-            </ul>
-          
-            <h2>Svakheter</h2>
-            <ul>
-              <li>Filmens tempo kan være ujevn, og noen seere kan finne enkelte partier litt for langsomme.</li>
-              <li>Det mangler noe dybde i karakterene til tross for sterke skuespillerprestasjoner, spesielt i birollene.</li>
-            </ul>
-          
-            <h2>Konklusjon</h2>
-            <p><em>Conclave</em> er en film som vil fenge de som er interessert i religiøse intriger og politiske spill. Selv om den har noen svakheter i tempo og karakterutvikling, kompenserer den med sterke prestasjoner og en urovekkende skildring av maktkampene som foregår bak lukket dør. En film som gir et interessant, men også mørkt, innblikk i Vatikanets verden.</p>
-        
-            <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Stjerner)</p>
-        </article>
-        <img src="bilder/conclave2.png" alt="">
-    </section>
+  <div class="container1" id="movieContainer">
+    <p>Laster inn anmeldelse...</p>
+  </div>
+  <section class="container">
+    <article>
+      <h2>En spennende thriller i Vatikanets korridorer</h2>
+      <p><em>Conclave</em> er en intens politisk thriller som finner sted i Vatikanet under den katolske kirkens valg av
+        ny pave. Filmen tar oss bak de murer og skjulte korridorene hvor maktkamper, intriger og religiøse dilemmaer
+        utspiller seg blant kardinalene, som alle har sine egne ambisjoner og hemmeligheter.</p>
 
-    <section class="container anbefalinger" id="recommendations">
-        <h2>Hva du kan se etterpå</h2>
-        <div class="anbefalt-filmer"></div>
-    </section>
-    
+      <h2>Styrker</h2>
+      <ul>
+        <li><strong>Skuespill:</strong> John Malkovich og Christopher Walken er imponerende i sine roller som kardinaler
+          med sterke personlige interesser. Deres tilstedeværelse bærer filmen gjennom de mer stillestående øyeblikkene.
+        </li>
+        <li><strong>Atmosfære:</strong> Filmens setting i Vatikanet, med mørke korridorer og symbolikk, bidrar sterkt
+          til den spenningsfylte og dramatiske tonen.</li>
+        <li><strong>Intriger:</strong> Historien om maktkamp og manipulasjon, kombinert med de religiøse spørsmålene som
+          blir stilt, skaper en kompleks og engasjerende fortelling.</li>
+      </ul>
 
-    <script>
-        const apiKey = "e250dfcd";
-        const movieTitle = "conclave";
+      <h2>Svakheter</h2>
+      <ul>
+        <li>Filmens tempo kan være ujevn, og noen seere kan finne enkelte partier litt for langsomme.</li>
+        <li>Det mangler noe dybde i karakterene til tross for sterke skuespillerprestasjoner, spesielt i birollene.</li>
+      </ul>
 
-        async function loadReview() {
-            const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
-            const response = await fetch(url);
-            const data = await response.json();
+      <h2>Konklusjon</h2>
+      <p><em>Conclave</em> er en film som vil fenge de som er interessert i religiøse intriger og politiske spill. Selv
+        om den har noen svakheter i tempo og karakterutvikling, kompenserer den med sterke prestasjoner og en
+        urovekkende skildring av maktkampene som foregår bak lukket dør. En film som gir et interessant, men også mørkt,
+        innblikk i Vatikanets verden.</p>
 
-            const container = document.getElementById("movieContainer");
+      <p class="rating">★ ★ ★ ★ ☆ (4 av 5 Stjerner)</p>
+    </article>
+    <img src="bilder/conclave2.png" alt="">
+  </section>
 
-            if (data.Response === "True") {
-                container.innerHTML = `
+  <section class="container anbefalinger" id="recommendations">
+    <h2>Hva du kan se etterpå</h2>
+    <div class="anbefalt-filmer"></div>
+  </section>
+
+
+  <script>
+    const apiKey = "e250dfcd";
+    const movieTitle = "conclave";
+
+    async function loadReview() {
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}&plot=full`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const container = document.getElementById("movieContainer");
+
+      if (data.Response === "True") {
+        container.innerHTML = `
           <div class="movie-review">
             <img src="${data.Poster}" alt="${data.Title} poster">
             <div class="movie-info">
@@ -82,39 +96,43 @@
             </div>
           </div>
         `;
-            } else {
-                container.innerHTML = `<p>Fant ikke filmen "${movieTitle}".</p>`;
-            }
-        }
+      } else {
+        container.innerHTML = `<p>Fant ikke filmen "${movieTitle}".</p>`;
+      }
+    }
 
-        loadReview();
+    loadReview();
 
-        async function loadRecommendations() {
-            const titles = ["The Two Popes" , "12 Angry Men", "Angels & Demons", "The Ides of March" ,"Spotlight"]; 
-          
-            const anbefaltContainer = document.querySelector(".anbefalt-filmer");
-          
-            for (let title of titles) {
-              const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
-              const response = await fetch(url);
-              const data = await response.json();
-          
-              if (data.Response === "True") {
-                const card = document.createElement("div");
-                card.classList.add("anbefalt-kort");
-                card.innerHTML = `
+    async function loadRecommendations() {
+      const titles = ["The Two Popes", "12 Angry Men", "Angels & Demons", "The Ides of March", "Spotlight"];
+
+      const anbefaltContainer = document.querySelector(".anbefalt-filmer");
+
+      for (let title of titles) {
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.Response === "True") {
+          const card = document.createElement("div");
+          card.classList.add("anbefalt-kort");
+          card.innerHTML = `
                   <img src="${data.Poster}" alt="${data.Title}">
                   <h4>${data.Title}</h4>
                   <p>${data.Year} – ${data.Genre}</p>
                 `;
-                anbefaltContainer.appendChild(card);
-              }
-            }
-          }
-          
-          loadReview().then(loadRecommendations);
-          
-    </script>
+          anbefaltContainer.appendChild(card);
+        }
+      }
+    }
+
+    loadReview().then(loadRecommendations);
+
+    function toggleMenu() {
+      const navLinks = document.querySelector(".andre_siden");
+      navLinks.classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>

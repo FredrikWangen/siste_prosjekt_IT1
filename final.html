@@ -6,21 +6,26 @@
   <title>Wangen's Score | Anmeldelse</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="trendig.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
   <header>
     <nav>
-        <a class="logo" href="index.html">Wangen's Score</a>
-        <ul class="andre_siden">
-            <li> <a href="index.html">Hjem</a></li>
-            <li><a href="search.html">Søk Opp</a></li>
-            <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
-        </ul>
-        <a href="oss.html"><button class="knapp">Om Oss</button></a>
+      <a class="logo" href="index.html">Wangen's Score</a>
+
+      <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
+      <ul class="andre_siden">
+        <li> <a href="index.html">Hjem</a></li>
+        <li><a href="search.html">Søk Opp</a></li>
+        <li> <a href="anbefaling.html">Wangen's Anbefalinger</a></li>
+      </ul>
+      <a href="oss.html"><button class="knapp">Om Oss</button></a>
     </nav>
-</header>
+  </header>
 
   <div class="container1" id="movieContainer">
     <p>Laster inn anmeldelse...</p>
@@ -101,15 +106,15 @@
     loadReview();
 
     async function loadRecommendations() {
-      const titles = ["A Quiet Place","Get Out", "It Follows", "Hereditary", "The Invisible Man"]; 
-    
+      const titles = ["A Quiet Place", "Get Out", "It Follows", "Hereditary", "The Invisible Man"];
+
       const anbefaltContainer = document.querySelector(".anbefalt-filmer");
-    
+
       for (let title of titles) {
         const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
         const response = await fetch(url);
         const data = await response.json();
-    
+
         if (data.Response === "True") {
           const card = document.createElement("div");
           card.classList.add("anbefalt-kort");
@@ -122,8 +127,13 @@
         }
       }
     }
-    
+
     loadReview().then(loadRecommendations);
+
+    function toggleMenu() {
+      const navLinks = document.querySelector(".andre_siden");
+      navLinks.classList.toggle("show");
+    }
   </script>
 </body>
 

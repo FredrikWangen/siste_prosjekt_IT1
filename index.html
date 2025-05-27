@@ -7,12 +7,17 @@
     <title>Wangen's Score | Det beste sted for film og TV-serier</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
     <header>
         <nav>
             <a class="logo" href="index.html">Wangen's Score</a>
+
+            <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
             <ul class="andre_siden">
                 <li> <a href="index.html">Hjem</a></li>
                 <li><a href="search.html">Søk Opp</a></li>
@@ -149,7 +154,13 @@
     </main>
 
 
-    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector(".andre_siden");
+            navLinks.classList.toggle("show");
+        }
+    </script>
+        
 </body>
 
 </html>

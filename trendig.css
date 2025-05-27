@@ -7,6 +7,8 @@ body{
     margin: 0 auto;
     padding: 20px;
     width: 100%;
+    display: flex;
+    
 
 }
 
@@ -19,10 +21,14 @@ body{
     border-radius: 12px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     
 }
 
+article{
+    width: 700px;
+}
 
 .movie-review {
     display: flex;
@@ -42,6 +48,8 @@ body{
     margin-top: 0;
 }
 
+
+
 article>*{
     margin-top: 10px;
 }
@@ -59,13 +67,15 @@ article>*{
 
 section {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center
 }
 
 section>img {
-    width: 33%;
+    width: 400px; 
     padding: 20px;
+    
     
     
 }
@@ -74,6 +84,7 @@ section>img {
     margin-top: 60px;
     padding: 20px 0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction:column ;
     
     
@@ -103,15 +114,51 @@ section>img {
     transform: scale(1.1);
     
   }
+  @media (max-width: 1150px){
+    .container{
+        justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container1 {
+      padding: 10px;
+    }
   
-
-@media (max-width: 768px) {
     .movie-review {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-
-    .movie-info {
-        text-align: center;
+  
+    .movie-review img {
+      max-width: 200px;
     }
-}
+  
+    article {
+      width: 100%;
+      padding: 0 10px;
+    }
+  
+    section {
+      flex-direction: column;
+    }
+  
+    section > img {
+      width: 280px;
+      padding: 10px;
+    }
+  
+    .anbefalt-filmer {
+      justify-content: center;
+    }
+  
+    .anbefalt-kort {
+      width: 140px;
+    }
+  
+    .rating {
+      font-size: 16px;
+    }
+  }
+  

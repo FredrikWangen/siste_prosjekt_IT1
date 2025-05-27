@@ -86,48 +86,43 @@ main {
     width: 100%;
 }
 
-@media screen and (max-width: 770px) {
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--color-button-text);
+}
+
+.mobil-knapp {
+    display: none;
+}
+
+@media (max-width: 770px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: center;
+        flex-wrap: wrap;
     }
 
-    .andre_siden li {
+    .hamburger {
         display: block;
+    }
+
+    .andre_siden {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-primary);
+        margin-top: 10px;
         padding: 10px 0;
     }
 
-    .knapp {
-        margin-top: 10px;
+    .andre_siden.show {
+        display: flex;
+    }
+
+    .andre_siden li {
+        padding: 10px 20px;
         text-align: center;
     }
 
-    .navn_rating {
-        flex-direction: column;
-    }
-
-    .colum {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    section.trending a {
-        display: block;
-        margin-bottom: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    nav {
-        padding: 15px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    nav > li, a, button {
-        font-size: 14px;
-    }
+    
 }
